@@ -2,15 +2,26 @@ import { Pagination } from "@discordx/pagination";
 import type { CommandInteraction } from "discord.js";
 import { EmbedBuilder } from "discord.js";
 import { Discord, MetadataStorage, Slash } from "discordx";
+import { Locales } from "../api/locales";
+import { Regions } from "../api/regions";
+import API from "../api";
 
 @Discord()
 export class SlashExample {
-  // example: pagination for all slash command
   @Slash({
     description: "Pagination for all slash command",
     name: "all-commands",
   })
   async pages(interaction: CommandInteraction): Promise<void> {
+    const api = "GAPI-151f881b-64fd-4f5b-aaed-f44337ce855d";
+    const valorant = new API(Regions.NA, api, Regions.AMERICAS);
+    valorant.content.get(Locales["en-US"]).then((content) => {
+      console.log(
+        content.characters.map((char) => {
+          return char.name;
+        })
+      );
+    });
     const commands = MetadataStorage.instance.applicationCommands.map((cmd) => {
       return { description: cmd.description, name: cmd.name };
     });
