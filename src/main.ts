@@ -1,10 +1,7 @@
-import { dirname, importx } from "@discordx/importer";
+import { importx } from "@discordx/importer";
 import type { Interaction, Message } from "discord.js";
 import { IntentsBitField } from "discord.js";
 import { Client } from "discordx";
-import API from "./api";
-import Locales from "./api/utils/locales";
-import Regions from "./api/utils/regions";
 import { config } from "./utils/config";
 
 export const bot = new Client({
@@ -55,6 +52,7 @@ bot.on("messageCreate", (message: Message) => {
   bot.executeCommand(message);
 });
 
+export const apiKey = "RGAPI-151f881b-64fd-4f5b-aaed-f44337ce855d";
 async function run() {
   // The following syntax should be used in the commonjs environment
   //
@@ -67,18 +65,6 @@ async function run() {
   if (!config.botToken) {
     throw Error("Could not find BOT_TOKEN in your environment");
   }
-
-  const api = "GAPI-151f881b-64fd-4f5b-aaed-f44337ce855d";
-  const valorant = new API(Regions.NA, api, Regions.AMERICAS);
-  valorant.content
-    .get(Locales["en-US"])
-    .then((content) => {
-      const data = content.maps.map((map) => map.name);
-      console.log(data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
 
   // Log in with your bot token
   await bot.login(config.botToken);
