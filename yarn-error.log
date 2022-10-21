@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Amine Ouhani\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add class-validator @types/class-validator
+  C:\Program Files\nodejs\node.exe C:\Users\Amine Ouhani\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @types/liamcottle/valorant.js
 
 PATH: 
-  C:\Program Files\PowerShell\7;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\PowerShell\7\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Go\bin;C:\ProgramData\chocolatey\bin;C:\tools\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\Users\Amine Ouhani\scoop\shims;C:\Users\Amine Ouhani\AppData\Local\Microsoft\WindowsApps;C:\Users\Amine Ouhani\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Amine Ouhani\AppData\Roaming\npm;C:\Users\Amine Ouhani\go\bin;C:\Users\Amine Ouhani\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\app\flutter\bin;C:\Users\Amine Ouhani\.dotnet\tools;C:\Program Files\JetBrains\WebStorm 223.4884.72\bin;C:\tools\dart-sdk\bin;C:\Users\Amine Ouhani\AppData\Roaming\Pub\Cache\bin;C:\Users\Amine Ouhani\AppData\Roaming\Composer\vendor\bin;C:\Users\Amine Ouhani\AppData\Local\JetBrains\Toolbox\scripts
+  C:\Program Files\PowerShell\7;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\PowerShell\7\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Go\bin;C:\ProgramData\chocolatey\bin;C:\tools\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\Users\Amine Ouhani\scoop\shims;C:\Users\Amine Ouhani\AppData\Local\Microsoft\WindowsApps;C:\Users\Amine Ouhani\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Amine Ouhani\AppData\Roaming\npm;C:\Users\Amine Ouhani\go\bin;C:\Users\Amine Ouhani\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\app\flutter\bin;C:\Users\Amine Ouhani\.dotnet\tools;C:\Program Files\JetBrains\WebStorm 223.4884.72\bin;C:\tools\dart-sdk\bin;C:\Users\Amine Ouhani\AppData\Roaming\Pub\Cache\bin;C:\Users\Amine Ouhani\AppData\Roaming\Composer\vendor\bin;C:\Users\Amine Ouhani\AppData\Local\JetBrains\Toolbox\scripts;
 
 Yarn version: 
   1.22.19
@@ -14,8 +14,8 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fclass-validator: Not found
-      at Request.params.callback [as _callback] (C:\Users\Amine Ouhani\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66145:18)
+  Error: https://registry.yarnpkg.com/@types%2fliamcottle/valorant.js: Request "https://registry.yarnpkg.com/@types%2fliamcottle/valorant.js" returned a 405
+      at Request.params.callback [as _callback] (C:\Users\Amine Ouhani\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66154:18)
       at Request.self.callback (C:\Users\Amine Ouhani\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140890:22)
       at Request.emit (node:events:513:28)
       at Request.<anonymous> (C:\Users\Amine Ouhani\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141862:10)
@@ -29,7 +29,6 @@ Trace:
 npm manifest: 
   {
     "name": "valorant-bot",
-    "type": "module",
     "version": "1.0.0",
     "private": true,
     "license": "MIT",
@@ -39,17 +38,20 @@ npm manifest:
       "build:changelog": "npx @discordx/changelog --root=src",
       "dev": "ts-node-esm src/main.ts",
       "start": "node build/main.js",
-      "watch": "nodemon --exec ts-node-esm src/main.ts"
+      "watch": "nodemon --exec ts-node-esm src/main.ts --experimental-vm-modules"
     },
     "dependencies": {
       "@discordx/importer": "^1.1.10",
       "@discordx/pagination": "^3.2.0",
+      "@liamcottle/valorant.js": "liamcottle/valorant.js",
       "@types/qs": "^6.9.7",
+      "@types/validator": "^13.7.8",
       "axios": "^1.1.3",
       "discord.js": "^14.4.0",
       "discordx": "^11.3.0",
       "nodemodule": "^0.3.0",
-      "qs": "^6.11.0"
+      "qs": "^6.11.0",
+      "unofficial-valorant-api": "^2.3.0-stable.0"
     },
     "devDependencies": {
       "@types/node": "^18.7.18",
@@ -164,6 +166,12 @@ Lockfile:
       "@jridgewell/resolve-uri" "^3.0.3"
       "@jridgewell/sourcemap-codec" "^1.4.10"
   
+  "@liamcottle/valorant.js@liamcottle/valorant.js":
+    version "1.5.1"
+    resolved "https://codeload.github.com/liamcottle/valorant.js/tar.gz/09176a77e77eb93eb2370571d6828f5ee95b8f6a"
+    dependencies:
+      axios "^0.21.1"
+  
   "@sapphire/async-queue@^1.5.0":
     version "1.5.0"
     resolved "https://registry.yarnpkg.com/@sapphire/async-queue/-/async-queue-1.5.0.tgz#2f255a3f186635c4fb5a2381e375d3dfbc5312d8"
@@ -217,6 +225,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.7.tgz#63bb7d067db107cc1e457c303bc25d511febf6cb"
     integrity sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==
   
+  "@types/validator@^13.7.8":
+    version "13.7.8"
+    resolved "https://registry.yarnpkg.com/@types/validator/-/validator-13.7.8.tgz#1340c85e51d5deee03df95721c4ff5c28dae5ff8"
+    integrity sha512-HKayOBe2ThTcQykiycCQYf70Fvo0WaJEJdxxNjvX3D/mnC0IUAhMe6wsIb1wwthmjiqBAR3qGkEzHYx74MS2yw==
+  
   "@types/ws@^8.5.3":
     version "8.5.3"
     resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.5.3.tgz#7d25a1ffbecd3c4f2d35068d0b283c037003274d"
@@ -256,6 +269,21 @@ Lockfile:
     version "0.4.0"
     resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
     integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
+  
+  axios@^0.21.1:
+    version "0.21.4"
+    resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
+    integrity sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
+    dependencies:
+      follow-redirects "^1.14.0"
+  
+  axios@^0.27.2:
+    version "0.27.2"
+    resolved "https://registry.yarnpkg.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
+    integrity sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==
+    dependencies:
+      follow-redirects "^1.14.9"
+      form-data "^4.0.0"
   
   axios@^1.1.3:
     version "1.1.3"
@@ -416,7 +444,7 @@ Lockfile:
     dependencies:
       to-regex-range "^5.0.1"
   
-  follow-redirects@^1.15.0:
+  follow-redirects@^1.14.0, follow-redirects@^1.14.9, follow-redirects@^1.15.0:
     version "1.15.2"
     resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
     integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
@@ -829,6 +857,13 @@ Lockfile:
     integrity sha512-oWjWJHzFet0Ow4YZBkyiJwiK5vWqEYoH7BINzJAJOLedZ++JpAlCbUktW2GQ2DS2FpKmxD/JMtWUUWl1BtghGw==
     dependencies:
       busboy "^1.6.0"
+  
+  unofficial-valorant-api@^2.3.0-stable.0:
+    version "2.3.0-stable.0"
+    resolved "https://registry.yarnpkg.com/unofficial-valorant-api/-/unofficial-valorant-api-2.3.0-stable.0.tgz#a76f617a69f35a8c4eb788e445f78f089a5b96c0"
+    integrity sha512-Ybrr4aeN8GyfCAmbYxjCTcDlswqd7VEzGdF+rOBcRscpS1jTNP1Y7fNAkioKFcpundhfZI0msWbwnI8GzDj8Aw==
+    dependencies:
+      axios "^0.27.2"
   
   util-deprecate@^1.0.1:
     version "1.0.2"
