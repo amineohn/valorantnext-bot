@@ -1,7 +1,7 @@
-import { Region } from "../../types/region";
-import { AccountDto, ActiveShardDto } from "../../types/riot/account";
+import { Region } from "../types";
+import { AccountDto, ActiveShardDto } from "../types";
 import Controller from "../controller";
-import { Regions } from "../regions";
+import Regions from "../utils/regions";
 
 export interface Account {
   /**

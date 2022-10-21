@@ -1,10 +1,6 @@
-import {
-  MatchlistDto,
-  MatchesMatchDto,
-  RecentMatchesDto,
-} from "../../types/valorant/match";
+import { MatchlistDto, MatchesMatchDto, RecentMatchesDto } from "../types";
 import Controller from "../controller";
-import { Queue } from "../queue";
+import { Queue } from "../utils/queue";
 
 export class Match extends Controller {
   /**

@@ -1,6 +1,9 @@
 import { Locale } from "../types/alias";
 
-export class Locales {
+class Locales {
+  constructor() {
+    throw new Error("This class cannot be instantiated");
+  }
   public static "ar-AE": Locale = "ar-AE";
   public static "de-DE": Locale = "de-DE";
   public static "en-GB": Locale = "en-GB";
@@ -21,3 +24,5 @@ export class Locales {
   public static "zh-CN": Locale = "zh-CN";
   public static "zh-TW": Locale = "zh-TW";
 }
+
+export { Locales as default };

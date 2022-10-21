@@ -1,4 +1,4 @@
-import { PlatformDataDto } from "../../types/valorant/status";
+import { PlatformDataDto } from "../types";
 import Controller from "../controller";
 
 export class Status extends Controller {

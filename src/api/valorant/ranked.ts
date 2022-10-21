@@ -1,7 +1,7 @@
 import qs from "qs";
 
 import Controller from "../controller";
-import { LeaderboardDto } from "../../types/valorant/ranked";
+import { LeaderboardDto } from "../types";
 
 export class Ranked extends Controller {
   /**

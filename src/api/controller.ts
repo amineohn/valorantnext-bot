@@ -1,4 +1,4 @@
-import { API } from "./index";
+import API from ".";
 
 abstract class Controller {
   readonly #instance: API;

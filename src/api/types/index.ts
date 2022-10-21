@@ -1,4 +1,175 @@
-import { int, long, float, puuid } from "../alias";
+import { LocalizedNamesDto } from "./general";
+import { int, long, float, puuid } from "./alias";
+
+export interface Region {
+  endpoint: string;
+}
+
+interface AccountDto {
+  puuid: string;
+  gameName: string;
+  tagLine: string;
+}
+
+interface ActiveShardDto {
+  puuid: string;
+  game: string;
+  activeShard: string;
+}
+
+export { AccountDto, ActiveShardDto };
+
+/**
+ * Response of the Content V1 Endpoint
+ *
+ */
+export interface ContentDto {
+  /**
+   * API Version
+   */
+  version: string;
+
+  /**
+   * Characters List
+   */
+  characters: ContentItemDto[];
+
+  /**
+   * Maps List
+   */
+  maps: ContentItemDto[];
+
+  /**
+   * Chromas List
+   */
+  chromas: ContentItemDto[];
+
+  /**
+   * Weapon Skins List
+   */
+  skins: ContentItemDto[];
+
+  /**
+   * Weapon Skin Levels List
+   */
+  skinLevels: ContentItemDto[];
+
+  /**
+   * Equipments List
+   */
+  equips: ContentItemDto[];
+
+  /**
+   * Gamemodes List
+   */
+  gameModes: ContentItemDto[];
+
+  /**
+   * Spray Paints List
+   */
+  sprays: ContentItemDto[];
+
+  /**
+   * Spray Paints Level List
+   */
+  sprayLevels: ContentItemDto[];
+
+  /**
+   * Weapon Charms List
+   */
+  charms: ContentItemDto[];
+
+  /**
+   * Weapon Charm Levels List
+   */
+  charmLevels: ContentItemDto[];
+
+  /**
+   * Player Cards List
+   */
+  playerCards: ContentItemDto[];
+
+  /**
+   * Player Title List
+   */
+  playerTitles: ContentItemDto[];
+
+  /**
+   * Acts List
+   */
+  acts: ActDto[];
+}
+
+export interface ContentItemDto {
+  /**
+   * Name of the item
+   */
+  name: string;
+
+  /**
+   * Localized Names of the item
+   */
+  localizedNames: LocalizedNamesDto;
+
+  /**
+   * Asset Name of the item
+   */
+  assetName: string;
+}
+
+export interface ActDto {
+  name: string;
+  localizedNames: LocalizedNamesDto;
+  id: string;
+  isActive: boolean;
+}
+
+export interface LeaderboardDto {
+  shard: string;
+  actId: string;
+  totalPlayers: long;
+  players: PlayerDto[];
+}
+
+export interface PlayerDto {
+  puuid: string;
+  gameName: string;
+  tagLine: string;
+  leaderboardRank: long;
+  rankedRating: long;
+  numberOfWins: long;
+}
+
+export interface PlatformDataDto {
+  id: string;
+  name: string;
+  locales: string[];
+  maintenances: StatusDto[];
+  incidents: StatusDto[];
+}
+
+export interface StatusDto {
+  id: int;
+  maintenance_status: string;
+  incident_severity: string;
+  titles: ContentDto[];
+  updates: UpdateDto[];
+}
+
+export interface ContentDto {
+  locale: string;
+  content: string;
+}
+
+export interface UpdateDto {
+  id: int;
+  author: string;
+  publish: boolean;
+  publish_locations: string[];
+  translations: ContentDto[];
+  created_at: string;
+  updated_at: string;
+}
 
 /**
  * Response of GET /val/match/v1/matches/{matchId}

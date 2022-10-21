@@ -2,6 +2,10 @@ import { dirname, importx } from "@discordx/importer";
 import type { Interaction, Message } from "discord.js";
 import { IntentsBitField } from "discord.js";
 import { Client } from "discordx";
+import API from "./api";
+import Locales from "./api/utils/locales";
+import Regions from "./api/utils/regions";
+import { config } from "./utils/config";
 
 export const bot = new Client({
   // To use only guild command
@@ -58,15 +62,26 @@ async function run() {
 
   // The following syntax should be used in the ECMAScript environment
   // @ts-ignore
-  await importx(`${dirname(import.meta.url)}/{events,commands}/**/*.{ts,js}`);
-
+  await importx(__dirname + "/{events,commands}/**/*.{ts,js}");
   // Let's start the bot
-  if (!process.env.BOT_TOKEN) {
+  if (!config.botToken) {
     throw Error("Could not find BOT_TOKEN in your environment");
   }
 
+  const api = "GAPI-151f881b-64fd-4f5b-aaed-f44337ce855d";
+  const valorant = new API(Regions.NA, api, Regions.AMERICAS);
+  valorant.content
+    .get(Locales["en-US"])
+    .then((content) => {
+      const data = content.maps.map((map) => map.name);
+      console.log(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
   // Log in with your bot token
-  await bot.login(process.env.BOT_TOKEN);
+  await bot.login(config.botToken);
 }
 
 run();

@@ -1,10 +1,13 @@
 import axios from "axios";
-import { Region } from "../types/region";
+import { Region } from "./types";
 import { ErrorInterpreter, ResponseInterpreter } from "../utils/interpreter";
-import Regions from "./regions";
+import Regions from "./utils/regions";
 
 import { Account } from "./riot";
-import { Content, Match, Ranked, Status } from "./valorant";
+import { Content } from "./valorant/content";
+import { Match } from "./valorant/match";
+import { Ranked } from "./valorant/ranked";
+import { Status } from "./valorant/status";
 
 class API {
   public account = new Account(this);

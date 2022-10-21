@@ -1,5 +1,5 @@
-import { Locale } from "../../types/alias";
-import { ContentDto } from "../../types/valorant/content";
+import { Locale } from "../types/alias";
+import { ContentDto } from "../types/index";
 import Controller from "../controller";
 import qs from "qs";
 
