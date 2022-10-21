@@ -58,46 +58,46 @@ export class MatchHistory {
             return;
           }
           let emoji = "";
-          switch (match.currenttier) {
+          switch (match.currenttierpatched) {
             case "iron":
-              match.currenttier = "Fer";
+              match.currenttierpatched = "Fer";
               emoji = "<:iron:879100202100469800>";
               break;
             case "bronze":
-              match.currenttier = "Bronze";
+              match.currenttierpatched = "Bronze";
               emoji = "<:bronze:879100202100469800>";
               break;
             case "silver":
-              match.currenttier = "Argent";
+              match.currenttierpatched = "Argent";
               emoji = "<:silver:879100202100469800>";
               break;
             case "gold":
-              match.currenttier = "Or";
-              emoji = "<:gold:879100202100469800>";
+              match.currenttierpatched = "Or";
+              emoji = "<:gold:1033015450885443617>";
               break;
 
             case "Gold 1":
-              match.currenttier = "Or 1";
-              emoji = "<:gold:879100202100469800>";
+              match.currenttierpatched = "Or 1";
+              emoji = "<:gold:1033015450885443617>";
               break;
             case "platinum":
-              match.currenttier = "Platine";
+              match.currenttierpatched = "Platine";
               emoji = "<:platinum:879100202100469800>";
               break;
             case "diamond":
-              match.currenttier = "Diamant";
+              match.currenttierpatched = "Diamant";
               emoji = "<:diamond:879100202100469800>";
               break;
             case "immortal":
-              match.currenttier = "Immortel";
+              match.currenttierpatched = "Immortel";
               emoji = "<:immortal:879100202100469800>";
               break;
             case "ascendant":
-              match.currenttier = "Ascendant";
+              match.currenttierpatched = "Ascendant";
               emoji = "<:ascendant:879100202100469800>";
               break;
             case "radiant":
-              match.currenttier = "Radiant";
+              match.currenttierpatched = "Radiant";
               emoji = "<:radiant:879100202100469800>";
               break;
           }
