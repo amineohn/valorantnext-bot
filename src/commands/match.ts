@@ -75,9 +75,16 @@ export class MatchHistory {
               match.currenttierpatched = "Or";
               emoji = "<:gold:1033015450885443617>";
               break;
-
             case "Gold 1":
               match.currenttierpatched = "Or 1";
+              emoji = "<:gold:1033015450885443617>";
+              break;
+            case "Gold 2":
+              match.currenttierpatched = "Or 2";
+              emoji = "<:gold:1033015450885443617>";
+              break;
+            case "Gold 3":
+              match.currenttierpatched = "Or 3";
               emoji = "<:gold:1033015450885443617>";
               break;
             case "platinum":
